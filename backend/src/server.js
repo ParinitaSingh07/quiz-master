@@ -5,6 +5,8 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const quizRoutes = require("./routes/quizRoutes");
+const questionRoutes = require("./routes/questionRoutes");
+const attemptRoutes = require("./routes/attemptRoutes");
 dotenv.config();
 
 connectDB();
@@ -21,6 +23,8 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/quizzes", quizRoutes);
+app.use("/api/questions", questionRoutes);
+app.use("/api/attempts", attemptRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
